@@ -78,7 +78,7 @@ function loadLabeledImages() // 인물 학습
             const descriptions = []
             for (let i = 1; i <= 5; i++) // 5장의 사진 학습
             {
-                const img = await faceapi.fetchImage(`https://github.com/GoldPencil5/faceproject/blob/main/%EC%96%BC%EA%B5%B4%20%EC%9D%B8%EC%8B%9D/face/${label}/${i}.jpg?raw=true`)
+                const img = await faceapi.fetchImage(`https://raw.githubusercontent.com/GoldPencil5/facemodel/main/face/${label}/${i}.jpg`)
                 /* 라이브 서버에서는 일반적으로 폴더 내부의 파일에 직접 접근할 수 없습니다.
                 따라서 원격 서버에 있는 이미지를 가져오는 방법을 사용해야 합니다. */
                 const detections = await faceapi.detectSingleFace(img).withFaceLandmarks().withFaceDescriptor()
