@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="kr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <script defer src="face-api.min.js"></script>
+    <script defer src="myscript.js"></script>
+    <title>출석부</title>
+
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      #Photo {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+      #l-Photo {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-right: 20px;
+            padding: 20px;
+            align-self: flex-start;
+        }
+
+      #r-Photo {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            align-self: flex-start;
+            position: static;
+        }
+
+      table {
+            border-collapse: collapse;
+            margin-top: 10px;
+            border-top: 5px solid #000;
+            border-bottom: 5px solid #000;
+        }
+
+    </style>
+</head>
+
+  <body>
+    <div id="Photo">
+        <div id="l-Photo">
+            <video id="video" width="650" height="500" autoplay muted></video>
+            <div>
+                <button id="captureButton">캡처</button>
+                <button id="attendBtn">출석</button>
+                <button id="excelBtn">엑셀</button>
+            </div>
+        <div id="r-Photo">
+            <table style="background-color: #73e175;">
+                <tr style="height: 550px;">
+                    <td style="width: 660px;" colspan="2">.</td>
+                </tr>
+                <tr data-name="hwan" border-top: 1px solid #ccc>
+                    <td>권동환</td>
+                    <td style="color: red; width: 100px;"></td>
+                </tr>
+                <tr data-name="in">
+                    <td>권승인</td>
+                    <td style="color: red; width: 100px;"></td>
+                </tr>
+                <tr data-name="gold">
+                    <td>금경필</td>
+                    <td style="color: red; width: 100px;"></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
