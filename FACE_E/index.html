@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="kr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <link rel="stylesheet" type="text/css" href="style.css">
+    
+    <script defer src="face-api.min.js"></script>
+    <script defer src="myscript.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.9/xlsx.full.min.js"></script>
+    <title>출석부</title>
+
+    <style>
+     
+
+      #Photo {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+      #l-Photo {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-right: 20px;
+            padding: 20px;
+            align-self: flex-start;
+        }
+
+      #r-Photo {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            align-self: flex-start;
+            position: static;
+        }
+
+      table {
+            border-collapse: collapse;
+            margin-top: 10px;
+            border-top: 5px solid #000;
+            border-bottom: 5px solid #000;
+        }
+
+    </style>
+</head>
+
+  <body>
+    <div id="Photo">
+        <div id="l-Photo">
+            <video id="video" width="650" height="500" autoplay muted></video>
+            <div>
+                <button id="captureButton">캡처</button>
+                <button id="attendBtn">출석</button>
+                <button id="excelBtn">엑셀</button>
+
+                <script>
+                    const btn = document.getElementById('captureButton')
+
+                    const onClick = e => {
+                        const {x, y, width, height} =btn.getBoundingClientRect()
+                        const radius = Math.sqrt(width * width + height *height)
+                        btn.style.setProperty('--diameter', radius * 2 + 'px')
+                        const { clientX, clientY } = e
+                        const left = (clientX - x - radius) / width * 100 + '%'
+                        const top = (clientY - y - radius) / height * 100 + '%'
+
+                        btn.style.setProperty('--left', left)
+                        btn.style.setProperty('--top', top)
+                        
+                    }
+
+                    btn.addEventListener('click', onClick)
+                </script>
+                
+            </div>
+        <div id="r-Photo">
+            <table style="background-color: #73e175;">
+                <tr style="height: 550px;">
+                    <td style="width: 660px;" colspan="2">.</td>
+                </tr>
+                <tr data-name="hwan" border-top: 1px solid #ccc>
+                    <td>권동환</td>
+                    <td style="color: red; width: 100px;"></td>
+                </tr>
+                <tr data-name="in">
+                    <td>권승인</td>
+                    <td style="color: red; width: 100px;"></td>
+                </tr>
+                <tr data-name="gold">
+                    <td>금경필</td>
+                    <td style="color: red; width: 100px;"></td>
+                </tr>
+            </table>
+            
+        </div>
+    </div>
+</body>
+</html>
